@@ -19,29 +19,84 @@
             p.style.fontSize = '50px';
         }
 
-    // Regular
+        /*NOTE: YOU CAN CHECK JAVASCRIPT RUNING ON YOUR ELEMENT BY 
+        GOING TO ELEMENTS ON THE INSPECT, THEN RIGHT CLICK, SELECT BREAK-ON,
+        THEN ATTRIBUTE MODIFICATIONS, THEN YOU CHECK*/
 
-    // Interpolated
+        // REGULAR
+        console.log('hello');
 
-    // Styled
+        // Interpolated
+        console.log('Hello I am a %s string!', '💩');
+        //%S PUTS THE SECOND STRING INTO THE FIRST STRING IN THE CONSOLE
+        console.log(`Hello ${dogs}`)
+        //YOU CAN CHECK A VARIABLE WITH THIS
 
-    // warning!
+        // STYLE
+        console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue')
+        //Putting %c in the first string, then in the next string you can style the 1st string
 
-    // Error :|
+        // WARNING !
+        console.warn('OH NOOO');
 
-    // Info
+        // ERROR
+        console.error('Shit!');
 
-    // Testing
+        // INFO
+        console.info('Crocodiles eat 3-4 people per year');
 
-    // clearing
+        // TESTING
+        const p = document.querySelector('p');
 
-    // Viewing DOM Elements
+        console.assert(p.classList.contains('ouch'), 'That is wrong!');
 
-    // Grouping together
+        // CLEARING
+        console.clear(); //you can clear the console
 
-    // counting
+        // VIEW DOM ELEMENTS
+        console.log(p);
+        console.dir(p); //This is how you can see the DOM of an Element
 
-    // timing
+        console.clear();
+
+        // GROUPING TOGETHER
+        dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);
+            console.log(`This is ${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old`);
+            console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+            console.groupEnd(`${dog.name}`);
+        });
+
+        // COUNTING
+
+        console.count('Wes');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+
+        // TIMING
+        console.time('fetching data');
+        fetch('https://api.github.com/users/wesbos')
+            .then(data => data.json())
+            .then(data => {
+                console.timeEnd('fetching data');
+                console.log(data);
+            });
+
+
+        //TABLES
+        console.table(dogs);
+        // THIS GIVES YOU A TABLE OF DAT FROM AN ARRAY
+
 
     </script>
 </body>
